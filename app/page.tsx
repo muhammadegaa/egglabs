@@ -1,11 +1,11 @@
 "use client"
 
-import { Mail, Terminal, Bot, FileSpreadsheet, Zap } from "lucide-react"
+import { Mail, Terminal, Heart, Shield, Users, Brain, Sprout } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export default function Home() {
   const [text, setText] = useState("")
-  const fullText = "Making highly capable technology accessible to anyone."
+  const fullText = "Building ethical AI that helps humanity flourish."
 
   useEffect(() => {
     let index = 0
@@ -40,94 +40,150 @@ export default function Home() {
               {text}
               <span className="animate-pulse">_</span>
             </h1>
+            <p className="text-lg md:text-xl opacity-80 max-w-3xl">
+              At Egg Labs, we believe technology should amplify human potential, not replace it. 
+              We create AI systems that are transparent, secure, and designed to help people grow 
+              alongside emerging technologies.
+            </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="border border-black dark:border-white p-6 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
-              <Bot className="w-6 h-6 mb-4" />
-              <h2 className="text-xl font-bold mb-2">AI Integration</h2>
+              <Heart className="w-6 h-6 mb-4" />
+              <h2 className="text-xl font-bold mb-2">Human-Centered</h2>
               <p className="text-sm opacity-80">
-                Leveraging artificial intelligence to enhance daily workflows and decision-making processes.
+                Designing AI that enhances human capabilities rather than replacing human judgment and creativity.
               </p>
             </div>
 
             <div className="border border-black dark:border-white p-6 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
-              <Zap className="w-6 h-6 mb-4" />
-              <h2 className="text-xl font-bold mb-2">Automation</h2>
+              <Shield className="w-6 h-6 mb-4" />
+              <h2 className="text-xl font-bold mb-2">Ethical & Secure</h2>
               <p className="text-sm opacity-80">
-                Creating tools that automate repetitive tasks while maintaining human oversight and control.
+                Building transparent systems with robust privacy protections and clear accountability mechanisms.
               </p>
             </div>
 
             <div className="border border-black dark:border-white p-6 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
-              <FileSpreadsheet className="w-6 h-6 mb-4" />
-              <h2 className="text-xl font-bold mb-2">Simple Solutions</h2>
+              <Sprout className="w-6 h-6 mb-4" />
+              <h2 className="text-xl font-bold mb-2">Growth-Oriented</h2>
               <p className="text-sm opacity-80">
-                Building practical tools like spreadsheets and templates that solve real problems effectively.
+                Creating tools that help individuals and communities develop new skills alongside technological advancement.
               </p>
             </div>
           </div>
 
-                    <div className="border border-black dark:border-white p-8">
-            <div className="space-y-4">
-              <h3 className="text-sm uppercase tracking-wider">Featured Project</h3>
-
-              {/* Buckt Card */}
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <h2 className="text-2xl font-bold">Buckt</h2>
-                  <p className="text-gray-600 dark:text-gray-400">Simple expense tracking for everyone</p>
+          <div className="space-y-12">
+            <div className="border border-black dark:border-white p-8">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold">Our Approach</h3>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <Brain className="w-5 h-5" />
+                      <h4 className="font-bold">Transparent Intelligence</h4>
+                    </div>
+                    <p className="text-sm opacity-80 leading-relaxed">
+                      Every AI system we build comes with clear explanations of how it works, 
+                      what data it uses, and how decisions are made.
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <Users className="w-5 h-5" />
+                      <h4 className="font-bold">Community-Driven</h4>
+                    </div>
+                    <p className="text-sm opacity-80 leading-relaxed">
+                      We involve users in the development process, ensuring our tools serve 
+                      real human needs and values.
+                    </p>
+                  </div>
                 </div>
-                <a
-                  href="https://buckt.replit.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-                >
-                  Try it →
-                </a>
               </div>
+            </div>
 
-              {/* NotaKu Card */}
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <h2 className="text-2xl font-bold">NotaKu</h2>
-                  <p className="text-gray-600 dark:text-gray-400">SME document management for POs, DOs, invoices, and receipts</p>
+            <div className="border border-black dark:border-white p-8">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold">Current Projects</h3>
+
+                <div className="flex justify-between items-start border-b border-gray-200 dark:border-gray-700 pb-6">
+                  <div className="space-y-2">
+                    <h4 className="text-xl font-bold">Buckt</h4>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Simple, privacy-first expense tracking that helps people understand their financial patterns
+                    </p>
+                    <div className="flex gap-2 text-xs">
+                      <span className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Privacy-First</span>
+                      <span className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Local Data</span>
+                    </div>
+                  </div>
+                  <a
+                    href="https://buckt.replit.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                  >
+                    Try it →
+                  </a>
                 </div>
-                <a
-                  href="https://notaku.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-                >
-                  Try it →
-                </a>
-              </div>
 
-              {/* BeeReady Card */}
-              <div className="flex justify-between items-start">
-                <div>
-                  <h2 className="text-2xl font-bold">BeeReady</h2>
-                  <p className="text-gray-600 dark:text-gray-400">AI-powered IELTS speaking assessment tool</p>
+                <div className="flex justify-between items-start border-b border-gray-200 dark:border-gray-700 pb-6">
+                  <div className="space-y-2">
+                    <h4 className="text-xl font-bold">NotaKu</h4>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Empowering small businesses with accessible document management for POs, DOs, invoices, and receipts
+                    </p>
+                    <div className="flex gap-2 text-xs">
+                      <span className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">SME-Focused</span>
+                      <span className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Accessible</span>
+                    </div>
+                  </div>
+                  <a
+                    href="https://notaku.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                  >
+                    Try it →
+                  </a>
                 </div>
-                <a
-                  href="https://beeready.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-                >
-                  Try it →
-                </a>
-              </div>
 
+                <div className="flex justify-between items-start">
+                  <div className="space-y-2">
+                    <h4 className="text-xl font-bold">BeeReady</h4>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Ethical AI-powered language assessment that helps learners grow at their own pace
+                    </p>
+                    <div className="flex gap-2 text-xs">
+                      <span className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Educational</span>
+                      <span className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Growth-Focused</span>
+                    </div>
+                  </div>
+                  <a
+                    href="https://beeready.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                  >
+                    Try it →
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
       </main>
 
       <footer className="container mx-auto px-4 py-8 border-t border-black dark:border-white mt-12">
-        <p className="text-sm text-center opacity-80">Building appropriate technology for the future</p>
+        <div className="text-center space-y-4">
+          <p className="text-sm opacity-80">
+            "Technology should be a tool for human flourishing, not human replacement."
+          </p>
+          <p className="text-xs opacity-60">
+            Building ethical AI systems that grow with humanity
+          </p>
+        </div>
       </footer>
     </div>
   )
 }
-
