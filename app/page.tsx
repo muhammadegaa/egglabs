@@ -68,10 +68,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border border-black dark:border-white p-8">
+                    <div className="border border-black dark:border-white p-8">
             <div className="space-y-4">
               <h3 className="text-sm uppercase tracking-wider">Featured Project</h3>
-              <div className="flex justify-between items-start">
+
+              {/* Buckt Card */}
+              <div className="flex justify-between items-start mb-6">
                 <div>
                   <h2 className="text-2xl font-bold">Buckt</h2>
                   <p className="text-gray-600 dark:text-gray-400">Simple expense tracking for everyone</p>
@@ -85,9 +87,41 @@ export default function Home() {
                   Try it →
                 </a>
               </div>
+
+              {/* NotaKu Card */}
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <h2 className="text-2xl font-bold">NotaKu</h2>
+                  <p className="text-gray-600 dark:text-gray-400">SME document management for POs, DOs, invoices, and receipts</p>
+                </div>
+                <a
+                  href="https://notaku.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                >
+                  Try it →
+                </a>
+              </div>
+
+              {/* BeeReady Card */}
+              <div className="flex justify-between items-start">
+                <div>
+                  <h2 className="text-2xl font-bold">BeeReady</h2>
+                  <p className="text-gray-600 dark:text-gray-400">AI-powered IELTS speaking assessment tool</p>
+                </div>
+                <a
+                  href="https://beeready.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                >
+                  Try it →
+                </a>
+              </div>
+
             </div>
           </div>
-        </div>
       </main>
 
       <footer className="container mx-auto px-4 py-8 border-t border-black dark:border-white mt-12">
