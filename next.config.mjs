@@ -9,8 +9,6 @@ try {
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/egglabs' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/egglabs' : '',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -20,7 +18,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  distDir: 'out',
 }
 
 mergeConfig(nextConfig, userConfig)
