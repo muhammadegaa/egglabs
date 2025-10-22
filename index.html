@@ -3,468 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egg Labs - Building Ethical AI</title>
+    <title>AI Labs</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        
-        .header {
-            padding: 24px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 24px;
-            font-weight: bold;
-            background: linear-gradient(45deg, #10b981, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .logo::before {
-            content: "⚡";
-            color: #10b981;
-            font-size: 28px;
-        }
-        
-        .contact-btn {
-            background: linear-gradient(45deg, #10b981, #06b6d4);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 80px 0;
-        }
-        
-        .hero h1 {
-            font-size: clamp(32px, 8vw, 80px);
-            font-weight: bold;
-            margin-bottom: 24px;
-            line-height: 1.1;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.2s forwards;
-        }
-        
-        .hero p {
-            font-size: clamp(18px, 3vw, 24px);
-            color: #cbd5e1;
+            line-height: 1.6;
             max-width: 800px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.4s forwards;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background: #fff;
         }
         
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
+        h1 {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 0.5em;
+            color: #2c3e50;
         }
         
-        .btn-primary {
-            background: linear-gradient(45deg, #10b981, #06b6d4);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s ease;
+        h2 {
+            font-size: 1.4em;
+            font-weight: 400;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            color: #34495e;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5em;
         }
         
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        p {
+            margin-bottom: 1.2em;
+            color: #555;
         }
         
-        .btn-secondary {
-            padding: 16px 32px;
-            border: 2px solid #475569;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            color: white;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: #64748b;
-        }
-        
-        .principles {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: clamp(32px, 6vw, 48px);
-            font-weight: bold;
-            margin-bottom: 16px;
-            background: linear-gradient(45deg, #10b981, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 20px;
-            color: #94a3b8;
-            margin-bottom: 64px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin-bottom: 80px;
-        }
-        
-        .principle-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards;
-        }
-        
-        .principle-card:nth-child(1) { animation-delay: 0.8s; }
-        .principle-card:nth-child(2) { animation-delay: 1.0s; }
-        .principle-card:nth-child(3) { animation-delay: 1.2s; }
-        
-        .principle-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(16, 185, 129, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        .principle-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            background: linear-gradient(45deg, #10b981, #06b6d4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 24px;
-        }
-        
-        .principle-card h3 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 16px;
-        }
-        
-        .principle-card p {
-            color: #cbd5e1;
-            line-height: 1.6;
+        .intro {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 2em;
         }
         
         .projects {
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.2);
+            margin-top: 2em;
         }
         
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
+        .project {
+            margin-bottom: 1.5em;
+            padding: 1em;
+            background: #f8f9fa;
+            border-left: 3px solid #3498db;
         }
         
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards;
+        .project h3 {
+            margin: 0 0 0.5em 0;
+            font-size: 1.2em;
+            color: #2c3e50;
         }
         
-        .project-card:nth-child(1) { animation-delay: 1.4s; }
-        .project-card:nth-child(2) { animation-delay: 1.6s; }
-        .project-card:nth-child(3) { animation-delay: 1.8s; }
-        
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(16, 185, 129, 0.3);
+        .project p {
+            margin: 0.5em 0;
+            font-size: 0.95em;
         }
         
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 16px;
-        }
-        
-        .project-card h4 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        
-        .status-badge {
-            background: linear-gradient(45deg, #10b981, #06b6d4);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        .project-card p {
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-        
-        .tags {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-        
-        .tag {
-            background: rgba(255, 255, 255, 0.1);
-            color: #cbd5e1;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-        }
-        
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(45deg, #10b981, #06b6d4);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
+        a {
+            color: #3498db;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
         }
         
-        .project-link:hover {
-            transform: translateX(4px);
-            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        a:hover {
+            text-decoration: underline;
         }
         
         .footer {
+            margin-top: 3em;
+            padding-top: 2em;
+            border-top: 1px solid #eee;
             text-align: center;
-            padding: 80px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer blockquote {
-            font-size: clamp(20px, 4vw, 32px);
-            font-style: italic;
-            color: #cbd5e1;
-            margin-bottom: 16px;
-            font-weight: 300;
-        }
-        
-        .footer p {
-            color: #94a3b8;
-            font-size: 16px;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav {
-                flex-direction: column;
-                gap: 16px;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
+            color: #7f8c8d;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">egg labs</div>
-                <a href="mailto:helloegglabs@gmail.com?subject=Hello%20Egg%20Labs&body=I'd%20love%20to%20learn%20more%20about%20your%20projects!" class="contact-btn">Contact</a>
-            </nav>
+    <h1>AI Labs</h1>
+    
+    <p class="intro">
+        Building ethical, secure, and human-aligned AI systems that enhance human capabilities 
+        rather than replace them. Our focus is on developing AI that grows alongside humanity.
+    </p>
+    
+    <h2>Research Focus</h2>
+    <p>
+        We are committed to advancing AI research in areas that promote safety, transparency, 
+        and beneficial outcomes for society. Our work emphasizes responsible development practices 
+        and ethical considerations in artificial intelligence.
+    </p>
+    
+    <h2>Current Projects</h2>
+    <div class="projects">
+        <div class="project">
+            <h3>Notaku</h3>
+            <p>AI-powered note-taking and knowledge management system designed for seamless integration with human thought processes.</p>
+            <p><a href="https://buatnotaku.vercel.app" target="_blank">Visit Notaku →</a></p>
         </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Building ethical AI that helps humanity flourish.</h1>
-                <p>At Egg Labs, we believe technology should amplify human potential, not replace it. We create AI systems that are transparent, secure, and designed to help people grow alongside emerging technologies.</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn-primary">View Our Work →</a>
-                    <a href="#principles" class="btn-secondary">Learn More</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="principles" class="principles">
-            <div class="container">
-                <h2 class="section-title">Our Principles</h2>
-                <p class="section-subtitle">Every decision we make is guided by these core values that put humanity first.</p>
-                
-                <div class="principles-grid">
-                    <div class="principle-card">
-                        <div class="principle-icon">❤️</div>
-                        <h3>Human-Centered</h3>
-                        <p>Designing AI that enhances human capabilities rather than replacing human judgment and creativity.</p>
-                    </div>
-                    
-                    <div class="principle-card">
-                        <div class="principle-icon">🛡️</div>
-                        <h3>Ethical & Secure</h3>
-                        <p>Building transparent systems with robust privacy protections and clear accountability mechanisms.</p>
-                    </div>
-                    
-                    <div class="principle-card">
-                        <div class="principle-icon">🌱</div>
-                        <h3>Growth-Oriented</h3>
-                        <p>Creating tools that help individuals and communities develop new skills alongside technological advancement.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">Current Projects</h2>
-                <p class="section-subtitle">Real-world applications of our ethical AI principles in action.</p>
-                
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div>
-                                <h4>Buckt</h4>
-                                <span class="status-badge">Live</span>
-                            </div>
-                        </div>
-                        <p>Simple, privacy-first expense tracking that helps people understand their financial patterns</p>
-                        <div class="tags">
-                            <span class="tag">Privacy-First</span>
-                            <span class="tag">Local Data</span>
-                        </div>
-                        <a href="https://buckt.replit.app" target="_blank" class="project-link">Try it →</a>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div>
-                                <h4>NotaKu</h4>
-                                <span class="status-badge">Live</span>
-                            </div>
-                        </div>
-                        <p>Empowering small businesses with accessible document management for POs, DOs, invoices, and receipts</p>
-                        <div class="tags">
-                            <span class="tag">SME-Focused</span>
-                            <span class="tag">Accessible</span>
-                        </div>
-                        <a href="https://notaku.vercel.app" target="_blank" class="project-link">Try it →</a>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div>
-                                <h4>BeeReady</h4>
-                                <span class="status-badge">Live</span>
-                            </div>
-                        </div>
-                        <p>Ethical AI-powered language assessment that helps learners grow at their own pace</p>
-                        <div class="tags">
-                            <span class="tag">Educational</span>
-                            <span class="tag">Growth-Focused</span>
-                        </div>
-                        <a href="https://beeready.vercel.app" target="_blank" class="project-link">Try it →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <blockquote>"Technology should be a tool for human flourishing, not human replacement."</blockquote>
-            <p>Building ethical AI systems that grow with humanity</p>
-            <br>
-            <p style="font-size: 14px; color: #64748b;">© 2024 Egg Labs. Building the future, responsibly.</p>
+        
+        <div class="project">
+            <h3>BeeReady</h3>
+            <p>Intelligent preparation and readiness platform that helps individuals and teams optimize their performance through AI-assisted planning.</p>
+            <p><a href="https://beeready.dev" target="_blank">Visit BeeReady →</a></p>
         </div>
-    </footer>
+    </div>
+    
+    <h2>Principles</h2>
+    <p>
+        Our work is guided by the belief that AI should be developed with careful consideration 
+        of its impact on society. We prioritize transparency, safety, and the democratization 
+        of AI benefits while maintaining rigorous standards for responsible development.
+    </p>
+    
+    <div class="footer">
+        <p>AI Labs - Advancing human-centered artificial intelligence</p>
+    </div>
 </body>
 </html><!-- Force rebuild Wed 22 Oct 2025 01:27:08 BST -->
